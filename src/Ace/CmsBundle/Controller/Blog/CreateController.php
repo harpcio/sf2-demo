@@ -56,7 +56,7 @@ class CreateController extends Controller
 
                 return $this->redirectToRoute("cms.blog.update", ['id' => $blog->getId()]);
             } else {
-                // we need to show error message here
+                $this->session->getFlashBag()->add('error', 'The form has some error(s).');
             }
         }
 

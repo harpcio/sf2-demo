@@ -12,8 +12,10 @@
                 {{ blog.name }} ({{ blog.id }})
 
                 <a href="{{ path('cms.blog.update', {id: blog.id}) }}" class="btn btn-info">Update</a>
-                <a href="{{ path('cms.blog.delete', {id: blog.id}) }}" class="btn btn-danger">Delete</a>
+                <a href="#" data-toggle="modal" data-url="{{ path('cms.blog.delete', {id: blog.id}) }}" class="btn btn-danger csrf-item">Delete</a>
             </li>
         {% endfor %}
     </ul>
+    {{ include('AceCommonBundle:Default:csrf-item.html.twig', { 'csrfForm': csrfForm }) }}
 {% endblock content %}
+

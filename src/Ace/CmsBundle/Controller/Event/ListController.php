@@ -3,19 +3,23 @@
 namespace Ace\CmsBundle\Controller\Event;
 
 use Ace\CommonBundle\Entity\Repository\EventRepository;
+use Ace\CommonBundle\Form\CsrfType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\FormFactoryInterface;
 
 /**
  * @Route("", service="cms.controller.event.list")
  */
 class ListController extends Controller
 {
+    private $formFactory;
     private $eventRepository;
 
-    public function __construct(EventRepository $eventRepository)
+    public function __construct(FormFactoryInterface $formFactory, EventRepository $eventRepository)
     {
+        $this->formFactory = $formFactory;
         $this->eventRepository = $eventRepository;
     }
 
@@ -26,9 +30,11 @@ class ListController extends Controller
     public function indexAction()
     {
         $result = $this->eventRepository->findAll();
+        $csrfForm = $this->formFactory->create(new CsrfType());
 
         return [
-            'events' => $result
+            'events' => $result,
+            'csrfForm' => $csrfForm->createView()
         ];
     }
 }

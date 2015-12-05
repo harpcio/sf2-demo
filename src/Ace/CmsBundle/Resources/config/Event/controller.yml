@@ -2,6 +2,7 @@ services:
     cms.controller.event.list:
         class: Ace\CmsBundle\Controller\Event\ListController
         arguments:
+            - @form.factory
             - @common.repository.event
         calls:
             - [setContainer, [@service_container]]
@@ -27,6 +28,7 @@ services:
     cms.controller.event.delete:
         class: Ace\CmsBundle\Controller\Event\DeleteController
         arguments:
+            - @form.factory
             - @session
             - @common.repository.event
         calls:

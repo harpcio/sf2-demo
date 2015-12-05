@@ -71,7 +71,7 @@ class UpdateController extends Controller
 
                 $this->session->getFlashBag()->add('success', 'Item was successfully saved');
             } else {
-                // we need to show error message here
+                $this->session->getFlashBag()->add('error', 'The form has some error(s).');
             }
         }
 

@@ -56,9 +56,9 @@ class UpdateController extends Controller
             if ($form->isValid()) {
                 $this->eventRepository->save([$event], true);
 
-                $this->session->getFlashBag()->add('success', 'Item was successfully saved');
+                $this->session->getFlashBag()->add('success', 'Item was successfully saved.');
             } else {
-                // we need to show error message here
+                $this->session->getFlashBag()->add('error', 'The form has some error(s).');
             }
         }
 

@@ -2,6 +2,7 @@ services:
     cms.controller.blog.list:
         class: Ace\CmsBundle\Controller\Blog\ListController
         arguments:
+            - @form.factory
             - @common.repository.blog
         calls:
             - [setContainer, [@service_container]]
@@ -27,6 +28,7 @@ services:
     cms.controller.blog.delete:
         class: Ace\CmsBundle\Controller\Blog\DeleteController
         arguments:
+            - @form.factory
             - @session
             - @common.repository.blog
         calls:

@@ -1,0 +1,33 @@
+services:
+    cms.controller.blog.list:
+        class: Ace\CmsBundle\Controller\Blog\ListController
+        arguments:
+            - @common.repository.blog
+        calls:
+            - [setContainer, [@service_container]]
+
+    cms.controller.blog.create:
+        class: Ace\CmsBundle\Controller\Blog\CreateController
+        arguments:
+            - @form.factory
+            - @session
+            - @common.repository.blog
+        calls:
+            - [setContainer, [@service_container]]
+
+    cms.controller.blog.update:
+        class: Ace\CmsBundle\Controller\Blog\UpdateController
+        arguments:
+            - @form.factory
+            - @session
+            - @common.repository.blog
+        calls:
+            - [setContainer, [@service_container]]
+
+    cms.controller.blog.delete:
+        class: Ace\CmsBundle\Controller\Blog\DeleteController
+        arguments:
+            - @session
+            - @common.repository.blog
+        calls:
+            - [setContainer, [@service_container]]

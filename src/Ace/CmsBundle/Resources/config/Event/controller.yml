@@ -1,0 +1,33 @@
+services:
+    cms.controller.event.list:
+        class: Ace\CmsBundle\Controller\Event\ListController
+        arguments:
+            - @common.repository.event
+        calls:
+            - [setContainer, [@service_container]]
+
+    cms.controller.event.create:
+        class: Ace\CmsBundle\Controller\Event\CreateController
+        arguments:
+            - @form.factory
+            - @session
+            - @common.repository.event
+        calls:
+            - [setContainer, [@service_container]]
+
+    cms.controller.event.update:
+        class: Ace\CmsBundle\Controller\Event\UpdateController
+        arguments:
+            - @form.factory
+            - @session
+            - @common.repository.event
+        calls:
+            - [setContainer, [@service_container]]
+
+    cms.controller.event.delete:
+        class: Ace\CmsBundle\Controller\Event\DeleteController
+        arguments:
+            - @session
+            - @common.repository.event
+        calls:
+            - [setContainer, [@service_container]]

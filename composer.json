@@ -1,6 +1,6 @@
 {
-    "name": "rafal/local.dev.demo.ace",
-    "license": "proprietary",
+    "name": "sf2-demo",
+    "license": "MIT",
     "type": "project",
     "autoload": {
         "psr-4": {

@@ -3,7 +3,7 @@
 <head>
     <title>Company inc.</title>
     {% stylesheets filter='cssrewrite'
-    'assets/vendor/bootstrap-3.3.6-dist/css/bootstrap.min.css'
+    'assets/vendor/bootstrap/dist/css/bootstrap.min.css'
     'assets/theme/default/css/main.css' %}
     <link rel="stylesheet" href="{{ asset_url }}"/>
     {% endstylesheets %}
@@ -81,8 +81,8 @@
 <!--/.container-->
 
 {% javascripts
-'assets/vendor/jquery-2.1.4/jquery-2.1.4.min.js'
-'assets/vendor/bootstrap-3.3.6-dist/js/bootstrap.min.js'
+'assets/vendor/jquery/dist/jquery.min.js'
+'assets/vendor/bootstrap/dist/js/bootstrap.min.js'
 '@AceCommonBundle/Resources/public/js/common.js' %}
 <script src="{{ asset_url }}"></script>
 {% endjavascripts %}

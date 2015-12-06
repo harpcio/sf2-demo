@@ -7,12 +7,14 @@ INSTALL:
 
 2) run "composer install"
 
-3) run "php app/console doctrine:migrations:migrate"
+3) run "bower install"
 
-4) run "php app/console fos:user:create" and create "admin"
+4) run "php app/console doctrine:migrations:migrate"
 
-5) run "php app/console fos:user:promote" and add to "admin" role "ROLE_ADMIN"
+5) run "php app/console fos:user:create" and create "admin"
 
-6) run "php app/console assets:install"
+6) run "php app/console fos:user:promote" and add to "admin" role "ROLE_ADMIN
+
+7) run "php app/console assets:install"
 
 Nice fun!

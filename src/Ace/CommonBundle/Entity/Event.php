@@ -92,8 +92,7 @@ class Event
      * @var User
      *
      * @ORM\ManyToOne(
-     *     targetEntity="User",
-     *     inversedBy="createdBy"
+     *     targetEntity="User"
      * )
      * @ORM\JoinColumn(
      *     name="created_by",

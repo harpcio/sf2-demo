@@ -1,0 +1,19 @@
+liip_imagine:
+    resolvers:
+       default:
+          web_path:
+                web_root: %kernel.root_dir%/../web
+                cache_prefix: upload/images/cache
+
+    loaders:
+        default:
+            filesystem:
+                data_root: %kernel.root_dir%/../web
+
+    filter_sets:
+        100x100:
+            cache: ~
+            quality: 75
+            filters:
+                thumbnail: { size: [100, 100], mode: outbound }
+                rotate: { angle: 90 }

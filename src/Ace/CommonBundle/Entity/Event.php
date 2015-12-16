@@ -84,16 +84,15 @@ class Event
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="create_at", type="datetime")
+     * @ORM\Column(name="created_at", type="datetime")
      */
-    private $createAt;
+    private $createdAt;
 
     /**
      * @var User
      *
      * @ORM\ManyToOne(
-     *     targetEntity="User",
-     *     inversedBy="createdBy"
+     *     targetEntity="User"
      * )
      * @ORM\JoinColumn(
      *     name="created_by",
@@ -105,7 +104,7 @@ class Event
 
     public function __construct()
     {
-        $this->createAt = new \DateTime();
+        $this->createdAt = new \DateTime();
         $this->blogs = new ArrayCollection();
     }
 
@@ -286,13 +285,13 @@ class Event
     /**
      * Set createAt
      *
-     * @param \DateTime $createAt
+     * @param \DateTime $createdAt
      *
      * @return Event
      */
-    public function setCreateAt($createAt)
+    public function setCreatedAt($createdAt)
     {
-        $this->createAt = $createAt;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
@@ -302,9 +301,9 @@ class Event
      *
      * @return \DateTime
      */
-    public function getCreateAt()
+    public function getCreatedAt()
     {
-        return $this->createAt;
+        return $this->createdAt;
     }
 
     /**

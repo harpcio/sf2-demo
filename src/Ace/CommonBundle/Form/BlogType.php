@@ -2,6 +2,7 @@
 
 namespace Ace\CommonBundle\Form;
 
+use Ace\CommonBundle\Entity;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -18,7 +19,15 @@ class BlogType extends AbstractType
             ->add('name')
             ->add('intro')
             ->add('content')
-            ->add('events');
+            ->add('events')
+            ->add(
+                'imageFile',
+                'file',
+                [
+                    'required' => false,
+                    'label' => 'Avatar'
+                ]
+            );
 
         if ($options['add_submit_buttons']) {
             $builder->add('submit', 'submit');
@@ -29,7 +38,7 @@ class BlogType extends AbstractType
     {
         $resolver->setDefaults(
             [
-                'data_class' => 'Ace\CommonBundle\Entity\Blog',
+                'data_class' => Entity\Blog::class,
                 'add_submit_buttons' => false
             ]
         );

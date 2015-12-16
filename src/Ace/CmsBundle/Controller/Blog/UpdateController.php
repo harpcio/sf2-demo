@@ -59,6 +59,8 @@ class UpdateController extends Controller
             $originalEvents->add($event);
         }
 
+        $user = $this->getUser();
+
         $form = $this->formFactory->create(new BlogType(), $blog, ['add_submit_buttons' => true]);
         $form->handleRequest($request);
 
@@ -66,6 +68,7 @@ class UpdateController extends Controller
             if ($form->isValid()) {
                 $blog->addNotExistedEvents();
                 $blog->removeNotExistedEvents($originalEvents);
+                $blog->setUpdatedBy($user);
 
                 $this->blogRepository->save([$blog], true);
 

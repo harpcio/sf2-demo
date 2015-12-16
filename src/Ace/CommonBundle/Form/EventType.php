@@ -2,16 +2,16 @@
 
 namespace Ace\CommonBundle\Form;
 
+use Ace\CommonBundle\Entity;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class EventType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -21,8 +21,7 @@ class EventType extends AbstractType
             ->add('content')
             ->add('start')
             ->add('end')
-            ->add('blogs')
-        ;
+            ->add('blogs');
 
         if ($options['add_submit_buttons']) {
             $builder->add('submit', 'submit');
@@ -33,7 +32,7 @@ class EventType extends AbstractType
     {
         $resolver->setDefaults(
             [
-                'data_class' => 'Ace\CommonBundle\Entity\Event',
+                'data_class' => Entity\Event::class,
                 'add_submit_buttons' => false
             ]
         );
@@ -44,6 +43,6 @@ class EventType extends AbstractType
      */
     public function getName()
     {
-        return 'ace_commonbundle_event';
+        return 'ace_common_event';
     }
 }

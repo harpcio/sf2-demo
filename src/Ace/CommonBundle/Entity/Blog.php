@@ -4,10 +4,15 @@ namespace Ace\CommonBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Ace\CommonBundle\Entity\Repository\BlogRepository")
+ * @Vich\Uploadable
  */
 class Blog
 {
@@ -42,13 +47,6 @@ class Blog
     private $content;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="created_at", type="datetime")
-     */
-    private $createdAt;
-
-    /**
      * @var ArrayCollection
      *
      * @ORM\ManyToMany(targetEntity="Event", mappedBy="blogs")
@@ -56,11 +54,28 @@ class Blog
     private $events;
 
     /**
+     * @var File
+     *
+     * @Assert\File(
+     *     maxSize="1M",
+     *     mimeTypes={"image/png", "image/jpeg", "image/pjpeg"}
+     * )
+     * @Vich\UploadableField(mapping="blog_image", fileNameProperty="imageName")
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(name="image_name", type="string", length=255)
+     *
+     * @var string
+     */
+    private $imageName;
+
+    /**
      * @var User
      *
      * @ORM\ManyToOne(
-     *     targetEntity="User",
-     *     inversedBy="createdBy"
+     *     targetEntity="User"
      * )
      * @ORM\JoinColumn(
      *     name="created_by",
@@ -70,9 +85,37 @@ class Blog
      */
     private $createdBy;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created_at", type="datetime")
+     */
+    private $createdAt;
+
+    /**
+     * @var User
+     *
+     * @ORM\ManyToOne(
+     *     targetEntity="User"
+     * )
+     * @ORM\JoinColumn(
+     *     name="updated_by",
+     *     referencedColumnName="id",
+     *     nullable=false
+     * )
+     */
+    private $updatedBy;
+
+    /**
+     * @var \DateTime
+     * @ORM\Column(name="updated_at", type="datetime")
+     */
+    private $updatedAt;
+
     public function __construct()
     {
         $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
         $this->events = new ArrayCollection();
     }
 
@@ -228,6 +271,51 @@ class Blog
         }
     }
 
+
+    /**
+     * @param File|UploadedFile $image
+     *
+     * @return Event
+     */
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+
+        if ($image instanceof UploadedFile) {
+            $this->setUpdatedAt(new \DateTime());
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return File
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param string $imageName
+     *
+     * @return Event
+     */
+    public function setImageName($imageName)
+    {
+        $this->imageName = $imageName;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImageName()
+    {
+        return $this->imageName;
+    }
+
     /**
      * Set cratedAt
      *
@@ -268,6 +356,46 @@ class Blog
     public function setCreatedBy(User $createdBy)
     {
         $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * @return User
+     */
+    public function getUpdatedBy()
+    {
+        return $this->updatedBy;
+    }
+
+    /**
+     * @param User $updatedBy
+     *
+     * @return Blog
+     */
+    public function setUpdatedBy(User $updatedBy)
+    {
+        $this->updatedBy = $updatedBy;
+
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param \DateTime $updatedAt
+     *
+     * @return Blog
+     */
+    public function setUpdatedAt(\DateTime $updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }

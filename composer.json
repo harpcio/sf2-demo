@@ -1,6 +1,28 @@
 {
-    "name": "sf2-demo",
+    "name": "harpcio/sf2-demo",
+    "description": "Advanced skeleton application for SF2 based on 'Single Action Per Controller' standards, using PHP5.5, Doctrine2, DoctrineMigrations, KnpMenu, FOSUserBundle, VichUploaderBundle, LiipImagineBundle",
     "license": "MIT",
+    "keywords": [
+      "symfony",
+      "sf2",
+      "skeleton",
+      "advanced",
+      "demo",
+      "single action per controller",
+      "solid",
+      "doctrine2",
+      "doctrine migrations",
+      "knp menu",
+      "fos user bundle",
+      "vich uploader bundle",
+      "liip imagine bundle"
+    ],
+    "authors": [
+      {
+        "name": "Rafal Ksiazek",
+        "email": "harpcio@gmail.com"
+      }
+    ],
     "type": "project",
     "autoload": {
         "psr-4": {
@@ -8,7 +30,7 @@
         }
     },
     "require": {
-        "php": ">=5.3.9",
+        "php": ">=5.5",
         "symfony/symfony": "2.7.*",
         "doctrine/orm": "^2.4.8",
         "doctrine/doctrine-bundle": "~1.4",
@@ -20,7 +42,9 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "doctrine/doctrine-migrations-bundle": "^1.1",
         "friendsofsymfony/user-bundle": "^1.3",
-        "knplabs/knp-menu-bundle": "~2"
+        "knplabs/knp-menu-bundle": "~2",
+        "vich/uploader-bundle": "0.14",
+        "liip/imagine-bundle": "^1.3"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",

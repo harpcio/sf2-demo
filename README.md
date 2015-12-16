@@ -1,4 +1,4 @@
-Symfony2 Demo with DoctrineMigrations, KnpMenu, FOSUserBundle
+Symfony2 Demo with Doctrine2, DoctrineMigrations, KnpMenu, FOSUserBundle, VichUploaderBundle, LiipImagineBundle
 =======================
 
 INSTALL:

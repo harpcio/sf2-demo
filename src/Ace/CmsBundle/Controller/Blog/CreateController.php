@@ -49,6 +49,7 @@ class CreateController extends Controller
             if ($form->isValid()) {
                 $blog->addNotExistedEvents();
                 $blog->setCreatedBy($user);
+                $blog->setUpdatedBy($user);
 
                 $this->blogRepository->save([$blog], true);
 

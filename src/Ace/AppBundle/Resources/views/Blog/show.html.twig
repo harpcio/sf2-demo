@@ -21,9 +21,11 @@
                 </ul>
             </li>
         {% endif %}
+        {% if blog.imageName %}
         <li>
             <img src="{{ vich_uploader_asset(blog, 'imageFile')|imagine_filter('100x100') }}" />
         </li>
+        {% endif %}
     </ul>
 {% endblock %}
 

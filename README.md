@@ -1,4 +1,4 @@
-Symfony2 Demo with Doctrine2, DoctrineMigrations, KnpMenu, FOSUserBundle, VichUploaderBundle, LiipImagineBundle
+Symfony2 Advanced Demo with Doctrine2, DoctrineMigrations, KnpMenu, FOSUserBundle, VichUploaderBundle, LiipImagineBundle
 =======================
 
 INSTALL:
@@ -13,8 +13,6 @@ INSTALL:
 
 5) run "php app/console fos:user:create" and create "admin"
 
-6) run "php app/console fos:user:promote" and add to "admin" role "ROLE_ADMIN
+6) run "php app/console fos:user:promote" and add to "admin" role "ROLE_ADMIN"
 
-7) run "php app/console assets:install"
-
-Nice fun!
+Have fun!

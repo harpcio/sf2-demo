@@ -65,7 +65,7 @@ class Blog
     private $imageFile;
 
     /**
-     * @ORM\Column(name="image_name", type="string", length=255)
+     * @ORM\Column(name="image_name", type="string", length=255, nullable=true)
      *
      * @var string
      */

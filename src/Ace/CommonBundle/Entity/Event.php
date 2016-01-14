@@ -82,6 +82,11 @@ class Event
     private $blogs;
 
     /**
+     * @ORM\Column(name="image", type="string", length=100, nullable=true)
+     */
+    protected $image;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="created_at", type="datetime")
@@ -283,6 +288,26 @@ class Event
     }
 
     /**
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param string $image
+     *
+     * @return Event
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
      * Set createAt
      *
      * @param \DateTime $createdAt
@@ -332,7 +357,7 @@ class Event
 
     public function __toString()
     {
-        return '(' . $this->getId() . ') ' . $this->getName();
+        return '('.$this->getId().') '.$this->getName();
     }
 }
 

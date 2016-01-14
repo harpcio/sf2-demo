@@ -21,7 +21,19 @@ class EventType extends AbstractType
             ->add('content')
             ->add('start')
             ->add('end')
-            ->add('blogs');
+            ->add('blogs')
+            ->add(
+                'image',
+                'jb_crop_image_ajax',
+                [
+                    'endpoint' => 'gallery',
+                    'img_width' => 100,
+                    'crop_options' => [
+                        'aspect-ratio' => 1,
+                        'set-select' => "[5,5,20,20]"
+                    ]
+                ]
+            );
 
         if ($options['add_submit_buttons']) {
             $builder->add('submit', 'submit');

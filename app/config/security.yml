@@ -51,5 +51,7 @@ security:
         - { path: ^/blog, role: IS_AUTHENTICATED_ANONYMOUSLY }
 
         - { path: ^/cms, role: ROLE_ADMIN }
+        - { path: ^/_uploader, role: ROLE_ADMIN }
+        - { path: ^/_jbfileuploader/crop, role: ROLE_ADMIN }
 
         - { path: ^/, role: ROLE_NO_ACCESS }

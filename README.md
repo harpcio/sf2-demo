@@ -1,4 +1,4 @@
-Symfony2 Advanced Demo with Doctrine2, DoctrineMigrations, KnpMenu, FOSUserBundle, VichUploaderBundle, LiipImagineBundle
+Symfony2 Advanced Demo with Doctrine2, DoctrineMigrations, KnpMenu, FOSUserBundle, VichUploaderBundle, LiipImagineBundle, FileUploaderBundle with crop functionality
 =======================
 
 INSTALL:

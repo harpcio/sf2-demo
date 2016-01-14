@@ -23,6 +23,10 @@ class AppKernel extends Kernel
             new Vich\UploaderBundle\VichUploaderBundle(),
             new Liip\ImagineBundle\LiipImagineBundle(),
 
+            new Oneup\UploaderBundle\OneupUploaderBundle(),
+            new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
+            new Jb\Bundle\FileUploaderBundle\JbFileUploaderBundle(),
+
             new Ace\AppBundle\AceAppBundle(),
             new Ace\CmsBundle\AceCmsBundle(),
             new Ace\CommonBundle\AceCommonBundle(),

@@ -5,10 +5,19 @@ liip_imagine:
                 web_root: %kernel.root_dir%/../web
                 cache_prefix: upload/images/cache
 
+    data_loader: stream.image_filesystem
+
     loaders:
         default:
             filesystem:
                 data_root: %kernel.root_dir%/../web
+
+        stream.image_filesystem:
+            stream:
+                wrapper: gaufrette://image/
+        stream.croped_filesystem:
+            stream:
+                wrapper: gaufrette://croped/
 
     filter_sets:
         100x100:
@@ -17,3 +26,14 @@ liip_imagine:
             filters:
                 thumbnail: { size: [100, 100], mode: outbound }
                 rotate: { angle: 90 }
+
+        original: ~
+        thumb_from_original:
+            quality: 75
+            filters:
+                thumbnail: { size: [120, 90], mode: outbound }
+        thumb_from_croped:
+            data_loader: stream.croped_filesystem
+            quality: 75
+            filters:
+                thumbnail: { size: [120, 90], mode: outbound }

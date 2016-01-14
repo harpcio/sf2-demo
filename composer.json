@@ -1,6 +1,6 @@
 {
     "name": "harpcio/sf2-demo",
-    "description": "Advanced skeleton application for SF2 based on 'Single Action Per Controller' standards, using PHP5.5, Doctrine2, DoctrineMigrations, KnpMenu, FOSUserBundle, VichUploaderBundle, LiipImagineBundle",
+    "description": "Advanced skeleton application for SF2 based on 'Single Action Per Controller' standards, using PHP5.5, Doctrine2, DoctrineMigrations, KnpMenu, FOSUserBundle, VichUploaderBundle, LiipImagineBundle, FileUploaderBundle with crop functionality",
     "license": "MIT",
     "keywords": [
       "symfony",
@@ -44,7 +44,8 @@
         "friendsofsymfony/user-bundle": "^1.3",
         "knplabs/knp-menu-bundle": "~2",
         "vich/uploader-bundle": "0.14",
-        "liip/imagine-bundle": "^1.3"
+        "liip/imagine-bundle": "^1.1",
+        "jbouzekri/file-uploader-bundle": "~3.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",

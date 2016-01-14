@@ -2,11 +2,13 @@
 <html>
 <head>
     <title>Company inc.</title>
-    {% stylesheets filter='cssrewrite'
-    'assets/vendor/bootstrap/dist/css/bootstrap.min.css'
-    'assets/theme/default/css/main.css' %}
-    <link rel="stylesheet" href="{{ asset_url }}"/>
-    {% endstylesheets %}
+    {% block stylesheets %}
+        {% stylesheets filter='cssrewrite'
+        'assets/vendor/bootstrap/dist/css/bootstrap.min.css'
+        'assets/theme/default/css/main.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}"/>
+        {% endstylesheets %}
+    {% endblock %}
 </head>
 <body>
 <nav class="navbar navbar-fixed-top navbar-inverse">
@@ -79,13 +81,14 @@
     </footer>
 </div>
 <!--/.container-->
-
-{% javascripts
-'assets/vendor/jquery/dist/jquery.min.js'
-'assets/vendor/bootstrap/dist/js/bootstrap.min.js'
-'@AceCommonBundle/Resources/public/js/common.js'
-'assets/theme/default/js/main.js' %}
-<script src="{{ asset_url }}"></script>
-{% endjavascripts %}
+{% block javascripts %}
+    {% javascripts
+    'assets/vendor/jquery/dist/jquery.min.js'
+    'assets/vendor/bootstrap/dist/js/bootstrap.min.js'
+    '@AceCommonBundle/Resources/public/js/common.js'
+    'assets/theme/default/js/main.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
 </body>
 </html>

@@ -197,7 +197,6 @@
                     fillResult(data);
                     // Destroy and hide crop
                     $cropImg.data('Jcrop').destroy();
-                    $cropImg.remove();
                     toggleCropingTool();
                 }, 'json').fail(function(data) {
                     if (typeof data.responseJSON !== "undefined" && typeof data.responseJSON.error !== "undefined") {
